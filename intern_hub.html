@@ -282,7 +282,7 @@ body {
           <tbody>
             <tr><td class="phase-cell" rowspan="2">第一阶段<br>快速上手</td><td><b>W1</b></td><td>业务熟悉 + sourcing实操启动</td><td>1. 了解S/天玑组织架构和在招方向<br>2. 学习Offer系统、配置Boss/猎聘<br>3. 直接开始美术sourcing实操<br>4. 掌握搜索关键词体系<br>5. 了解竞品工作室</td><td>首批简历推荐<br>关键词库v1</td></tr>
             <tr><td><b>W2</b></td><td>sourcing放量 + mapping方法学习</td><td>1. 美术sourcing持续推进<br>2. 学习mapping方法论<br>3. 跟听1-2场面试<br>4. 对齐策划岗位画像<br>5. 锁定策划mapping目标公司</td><td>简历持续推荐<br>策划画像记录</td></tr>
-            <tr><td class="phase-cell" rowspan="3">第二阶段<br>双线并行</td><td><b>W3-4</b></td><td>美术开源双线放量<br>（S校招+天玑社招）</td><td>1. S美术校招sourcing放量<br>2. 天玑美术社招同步放量<br>3. 校招走院校pool，社招走行业渠道<br>4. 建立候选人标签体系<br>5. 打磨触达话术</td><td>美术候选人pool表<br>周报</td></tr>
+            <tr><td class="phase-cell" rowspan="3">第二阶段<br>双线并行</td><td><b>W3-4</b></td><td>美术开源双线放量<br>（S校招+天玑社招）</td><td>1. S美术泛校招sourcing放量<br>2. 天玑美术社招同步放量<br>3. 校招走院校pool，社招走行业渠道<br>4. 建立候选人标签体系<br>5. 打磨触达话术</td><td>美术候选人pool表<br>周报</td></tr>
             <tr><td><b>W5-6</b></td><td>策划sourcing启动<br>mapping辅助精准定位</td><td>1. 策划sourcing正式启动<br>2. 通过mapping锁定目标人选<br>3. 定向触达和沟通<br>4. 美术双线持续产出</td><td>策划简历推荐<br>Mapping报告v1</td></tr>
             <tr><td><b>W7-8</b></td><td>策划sourcing深入<br>美术渠道优化</td><td>1. 策划扩展到3-5家目标公司<br>2. 深度拆解组织架构<br>3. 推进候选人进面试<br>4. 美术分析渠道效果</td><td>策划简历推荐<br>Mapping v2</td></tr>
             <tr><td class="phase-cell" rowspan="3">第三阶段<br>稳定产出</td><td><b>W9-10</b></td><td>双线稳定交付<br>推动面试转化</td><td>1. 美术+策划双线稳定产出<br>2. 策划mapping报告完善<br>3. 重点跟进高潜候选人<br>4. 复盘数据优化策略</td><td>Mapping完整报告<br>面试跟进表</td></tr>
@@ -339,7 +339,7 @@ body {
       </div>
       <div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;align-items:center;">
         <span style="font-size:12px;color:var(--text-light);">筛选：</span>
-        <select id="track-filter-direction" onchange="renderTrack()" style="padding:4px 8px;border:1px solid var(--border);border-radius:6px;font-size:12px;"><option value="">全部方向</option><option value="S美术校招">S美术校招</option><option value="天玑美术社招">天玑美术社招</option><option value="策划">策划</option></select>
+        <select id="track-filter-direction" onchange="renderTrack()" style="padding:4px 8px;border:1px solid var(--border);border-radius:6px;font-size:12px;"><option value="">全部方向</option><option value="S美术泛校招">S美术泛校招</option><option value="天玑美术社招">天玑美术社招</option><option value="策划">策划</option></select>
         <select id="track-filter-status" onchange="renderTrack()" style="padding:4px 8px;border:1px solid var(--border);border-radius:6px;font-size:12px;"><option value="">全部状态</option><option value="待触达">待触达</option><option value="已触达">已触达</option><option value="沟通中">沟通中</option><option value="已推荐">已推荐</option><option value="面试中">面试中</option><option value="已offer">已offer</option><option value="不合适">不合适</option><option value="暂无意向">暂无意向</option></select>
         <span id="track-count" style="font-size:12px;color:var(--text-light);margin-left:auto;"></span>
       </div>
@@ -539,7 +539,7 @@ function renderTrackStats() {
   const total=data.length, recommended=data.filter(d=>['已推荐','面试中','已offer'].includes(d['状态'])).length;
   const interviewing=data.filter(d=>d['状态']==='面试中').length;
   const offered=data.filter(d=>d['状态']==='已offer').length;
-  const sArt=data.filter(d=>d['方向']==='S美术校招').length;
+  const sArt=data.filter(d=>d['方向']==='S美术泛校招').length;
   const tjArt=data.filter(d=>d['方向']==='天玑美术社招').length;
   const planD=data.filter(d=>d['方向']==='策划').length;
   stats.innerHTML = `
@@ -569,7 +569,7 @@ function renderTrack() {
   const tbody=document.getElementById('track-tbody');
   tbody.innerHTML=filtered.map(item=>{
     return `<tr style="border-bottom:1px solid var(--border);">${allFields.map(f=>{
-      if(f==='方向') return `<td style="padding:5px 6px;"><select onchange="updateCandidate(${item._id},'${f}',this.value)" style="padding:3px;border:1px solid var(--border);border-radius:4px;font-size:11px;"><option value="">-</option><option value="S美术校招" ${item[f]==='S美术校招'?'selected':''}>S美术校招</option><option value="天玑美术社招" ${item[f]==='天玑美术社招'?'selected':''}>天玑美术社招</option><option value="策划" ${item[f]==='策划'?'selected':''}>策划</option></select></td>`;
+      if(f==='方向') return `<td style="padding:5px 6px;"><select onchange="updateCandidate(${item._id},'${f}',this.value)" style="padding:3px;border:1px solid var(--border);border-radius:4px;font-size:11px;"><option value="">-</option><option value="S美术泛校招" ${item[f]==='S美术泛校招'?'selected':''}>S美术泛校招</option><option value="天玑美术社招" ${item[f]==='天玑美术社招'?'selected':''}>天玑美术社招</option><option value="策划" ${item[f]==='策划'?'selected':''}>策划</option></select></td>`;
       if(f==='状态') return `<td style="padding:5px 6px;"><select onchange="updateCandidate(${item._id},'${f}',this.value)" style="padding:3px;border:1px solid var(--border);border-radius:4px;font-size:11px;font-weight:500;"><option value="待触达" ${item[f]==='待触达'?'selected':''}>待触达</option><option value="已触达" ${item[f]==='已触达'?'selected':''}>已触达</option><option value="沟通中" ${item[f]==='沟通中'?'selected':''}>沟通中</option><option value="已推荐" ${item[f]==='已推荐'?'selected':''}>已推荐</option><option value="面试中" ${item[f]==='面试中'?'selected':''}>面试中</option><option value="已offer" ${item[f]==='已offer'?'selected':''}>已offer</option><option value="不合适" ${item[f]==='不合适'?'selected':''}>不合适</option><option value="暂无意向" ${item[f]==='暂无意向'?'selected':''}>暂无意向</option></select></td>`;
       if(f==='渠道') return `<td style="padding:5px 6px;"><select onchange="updateCandidate(${item._id},'${f}',this.value)" style="padding:3px;border:1px solid var(--border);border-radius:4px;font-size:11px;"><option value="">-</option><option value="Boss直聘" ${item[f]==='Boss直聘'?'selected':''}>Boss</option><option value="猎聘" ${item[f]==='猎聘'?'selected':''}>猎聘</option><option value="LinkedIn" ${item[f]==='LinkedIn'?'selected':''}>LinkedIn</option><option value="脉脉" ${item[f]==='脉脉'?'selected':''}>脉脉</option><option value="ArtStation" ${item[f]==='ArtStation'?'selected':''}>ArtStation</option><option value="内部简历库" ${item[f]==='内部简历库'?'selected':''}>内部库</option><option value="校园渠道" ${item[f]==='校园渠道'?'selected':''}>校园</option><option value="其他" ${item[f]==='其他'?'selected':''}>其他</option></select></td>`;
       if(f==='推荐日期') return `<td style="padding:5px 6px;"><input type="date" value="${item[f]||''}" onchange="updateCandidate(${item._id},'${f}',this.value)" style="padding:2px 4px;border:1px solid var(--border);border-radius:4px;font-size:11px;width:110px;"></td>`;
