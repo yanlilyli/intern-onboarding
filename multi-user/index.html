@@ -521,7 +521,7 @@ tr:hover td { background: #FAFAFE; }
     <div class="penguin">🐧</div>
     <h1>Offer鹅 · 光子实习Hub</h1>
     <p class="subtitle">光子招聘团队实习生入职平台<br>走上属于你的offer之路 ✨</p>
-    <input type="email" id="loginEmail" placeholder="输入你的邮箱" />
+    <input type="text" id="loginUsername" placeholder="输入账号" style="width:100%;padding:12px 16px;border:1px solid var(--border);border-radius:8px;font-size:14px;" />
     <input type="password" id="loginPassword" placeholder="输入密码" style="width:100%;padding:12px 16px;border:1px solid var(--border);border-radius:8px;font-size:14px;margin-top:8px;" />
     <button class="btn-primary" id="loginBtn" onclick="handleLogin()">登录 🚀</button>
     <p class="login-msg" id="loginMsg"></p>
@@ -957,7 +957,7 @@ let myInterns = [];
 // Weekly dates (24 weeks starting 5/11)
 const WEEKS = [];
 (function generateWeeks() {
-  const start = new Date(2025, 4, 11); // May 11, 2025 (Monday)
+  const start = new Date(2026, 4, 11); // May 11, 2026 (Monday)
   for (let i = 0; i < 24; i++) {
     const weekStart = new Date(start);
     weekStart.setDate(start.getDate() + i * 7);
@@ -972,31 +972,33 @@ const WEEKS = [];
 })();
 
 // ============================================================
-// AUTH
+// AUTH - 账号密码登录（管理员配置用户，用户名自动映射为邮箱格式）
 // ============================================================
+const EMAIL_DOMAIN = '@photon.local'; // 内部映射用，用户不需要知道
+
 async function handleLogin() {
-  const email = document.getElementById('loginEmail').value.trim();
+  const username = document.getElementById('loginUsername').value.trim().toLowerCase();
   const password = document.getElementById('loginPassword').value;
   const msgEl = document.getElementById('loginMsg');
   const btn = document.getElementById('loginBtn');
 
-  if (!email || !password) {
+  if (!username || !password) {
     msgEl.className = 'login-msg error';
-    msgEl.textContent = '请输入邮箱和密码';
+    msgEl.textContent = '请输入账号和密码';
     return;
   }
 
   btn.disabled = true;
   btn.textContent = '登录中...';
 
-  const { error } = await supabase.auth.signInWithPassword({
-    email,
-    password
-  });
+  // 用户名映射为内部邮箱格式
+  const email = username.includes('@') ? username : username + EMAIL_DOMAIN;
+
+  const { error } = await supabase.auth.signInWithPassword({ email, password });
 
   if (error) {
     msgEl.className = 'login-msg error';
-    msgEl.textContent = '登录失败: ' + error.message;
+    msgEl.textContent = '账号或密码错误';
   }
   btn.disabled = false;
   btn.textContent = '登录 🚀';
