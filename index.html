@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>玉鑫的转正之路 🚀</title>
+<style>
+:root {
+  --primary: #6366F1;
+  --primary-light: #818CF8;
+  --primary-dark: #4F46E5;
+  --accent: #F59E0B;
+  --accent-light: #FCD34D;
+  --pink: #EC4899;
+  --green: #10B981;
+  --bg: #FAFBFF;
+  --card: #FFFFFF;
+  --border: #E5E7EB;
+  --text: #1F2937;
+  --text-light: #6B7280;
+  --success: #10B981;
+  --warning: #F59E0B;
+  --danger: #EF4444;
+  --tag-basic: #EDE9FE;
+  --tag-advanced: #FEF3C7;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  background-image: radial-gradient(circle at 20% 80%, rgba(99,102,241,0.03) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 20%, rgba(245,158,11,0.03) 0%, transparent 50%);
+}
+.container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+.header {
+  background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 40%, #EC4899 100%);
+  color: white;
+  padding: 40px 30px;
+  border-radius: 20px;
+  margin-bottom: 24px;
+  position: relative;
+  overflow: hidden;
+}
+.header::before {
+  content: '';
+  position: absolute;
+  top: -30px; right: -30px;
+  width: 200px; height: 200px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='10' y='80' font-size='70'%3E🐧%3C/text%3E%3C/svg%3E") no-repeat center;
+  background-size: contain;
+  opacity: 0.15;
+}
+.header::after {
+  content: '';
+  position: absolute;
+  bottom: -20px; left: 50px;
+  width: 120px; height: 120px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='10' y='80' font-size='70'%3E🎯%3C/text%3E%3C/svg%3E") no-repeat center;
+  background-size: contain;
+  opacity: 0.1;
+}
+.header h1 { font-size: 28px; margin-bottom: 6px; position: relative; }
+.header .subtitle { opacity: 0.9; font-size: 14px; position: relative; }
+.header .offer-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(4px);
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  margin-top: 10px;
+  border: 1px solid rgba(255,255,255,0.3);
+}
+.header .meta { margin-top: 14px; display: flex; gap: 12px; flex-wrap: wrap; position: relative; }
+.header .meta span { background: rgba(255,255,255,0.15); padding: 4px 12px; border-radius: 20px; font-size: 13px; backdrop-filter: blur(4px); }
+.tab-nav {
+  display: flex; gap: 4px; background: var(--card); padding: 6px;
+  border-radius: 14px; margin-bottom: 24px;
+  box-shadow: 0 2px 8px rgba(99,102,241,0.08); overflow-x: auto;
+  border: 1px solid rgba(99,102,241,0.1);
+}
+.tab-btn {
+  padding: 10px 16px; border: none; background: transparent;
+  border-radius: 10px; cursor: pointer; font-size: 13px;
+  font-weight: 500; color: var(--text-light); white-space: nowrap; transition: all 0.2s;
+}
+.tab-btn.active { background: linear-gradient(135deg, var(--primary), var(--primary-light)); color: white; box-shadow: 0 2px 8px rgba(99,102,241,0.3); }
+.tab-btn:hover:not(.active) { background: #F5F3FF; color: var(--primary); }
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+.card {
+  background: var(--card); border-radius: 14px; padding: 24px;
+  margin-bottom: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  border: 1px solid var(--border);
+}
+.card h2 { font-size: 18px; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+.card h3 { font-size: 15px; color: var(--primary); margin: 16px 0 10px; }
+.link-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 10px; }
+.link-item {
+  display: flex; align-items: flex-start; gap: 12px; padding: 12px 14px;
+  border-radius: 10px; border: 1px solid var(--border); transition: all 0.2s;
+  text-decoration: none; color: var(--text);
+}
+.link-item:hover { border-color: var(--primary); background: #F5F3FF; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(99,102,241,0.1); }
+.link-item .icon { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+.link-item .info { flex: 1; }
+.link-item .info .name { font-weight: 500; font-size: 14px; }
+.link-item .info .desc { font-size: 12px; color: var(--text-light); margin-top: 2px; }
+.tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 500; }
+.tag-basic { background: var(--tag-basic); color: #5B21B6; }
+.tag-advanced { background: var(--tag-advanced); color: #92400E; }
+.plan-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.plan-table th { background: linear-gradient(135deg, var(--primary), var(--primary-light)); color: white; padding: 10px 12px; text-align: left; font-weight: 500; }
+.plan-table td { padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+.plan-table tr:hover td { background: #F5F3FF; }
+.phase-cell { background: #F5F3FF; font-weight: 600; color: var(--primary); text-align: center; }
+.review-week { border: 1px solid var(--border); border-radius: 12px; margin-bottom: 10px; overflow: hidden; transition: box-shadow 0.2s; }
+.review-week:hover { box-shadow: 0 2px 8px rgba(99,102,241,0.08); }
+.review-header { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; background: #FAFBFF; cursor: pointer; user-select: none; }
+.review-header h4 { font-size: 14px; display: flex; align-items: center; gap: 8px; }
+.review-header .date { font-size: 12px; color: var(--text-light); }
+.review-header .arrow { transition: transform 0.2s; }
+.review-week.open .review-header .arrow { transform: rotate(90deg); }
+.review-body { display: none; padding: 16px; }
+.review-week.open .review-body { display: block; }
+.review-field { margin-bottom: 12px; }
+.review-field label { display: block; font-size: 12px; font-weight: 600; color: var(--text-light); margin-bottom: 4px; }
+.review-field textarea { width: 100%; min-height: 55px; padding: 8px 12px; border: 1px solid var(--border); border-radius: 8px; font-size: 13px; font-family: inherit; resize: vertical; transition: border-color 0.2s; }
+.review-field textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(99,102,241,0.1); }
+.review-field input[type="number"] { width: 65px; padding: 5px 8px; border: 1px solid var(--border); border-radius: 6px; font-size: 13px; }
+.review-stats { display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; margin-bottom: 12px; }
+.review-stats .stat-item label { margin-bottom: 3px; font-size: 11px; display: block; }
+.checklist-item { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-bottom: 1px solid #F3F4F6; }
+.checklist-item input[type="checkbox"] { width: 18px; height: 18px; margin-top: 2px; accent-color: var(--primary); }
+.save-bar { position: fixed; bottom: 20px; right: 20px; z-index: 100; }
+.save-btn { background: linear-gradient(135deg, var(--primary), #8B5CF6); color: white; border: none; padding: 12px 24px; border-radius: 25px; font-size: 14px; font-weight: 500; cursor: pointer; box-shadow: 0 4px 16px rgba(99,102,241,0.3); transition: all 0.2s; }
+.save-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(99,102,241,0.4); }
+.save-notice { position: fixed; top: 20px; right: 20px; background: var(--success); color: white; padding: 10px 20px; border-radius: 10px; font-size: 14px; display: none; z-index: 200; animation: fadeIn 0.3s; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+.progress-bar { height: 6px; background: #E5E7EB; border-radius: 3px; overflow: hidden; margin-top: 8px; }
+.progress-fill { height: 100%; background: linear-gradient(90deg, var(--primary), var(--pink)); border-radius: 3px; transition: width 0.3s; }
+.note-box { background: #F5F3FF; border-left: 4px solid var(--primary); padding: 12px 16px; border-radius: 0 10px 10px 0; margin: 12px 0; font-size: 13px; }
+.danger-box { background: #FEF2F2; border-left: 4px solid var(--danger); padding: 12px 16px; border-radius: 0 10px 10px 0; margin: 12px 0; font-size: 13px; }
+.faq-item { padding: 12px 0; border-bottom: 1px solid #F3F4F6; }
+.faq-item .q { font-weight: 600; font-size: 14px; margin-bottom: 4px; color: var(--primary-dark); }
+.faq-item .a { font-size: 13px; color: var(--text-light); }
+.stats-card { background: linear-gradient(135deg, #F5F3FF, #FDF4FF); border: 1px solid rgba(99,102,241,0.15); border-radius: 12px; padding: 16px; margin-bottom: 16px; }
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; }
+.stat-box { background: white; border-radius: 10px; padding: 12px; text-align: center; box-shadow: 0 1px 4px rgba(0,0,0,0.05); }
+.stat-box .num { font-size: 24px; font-weight: 700; color: var(--primary); }
+.stat-box .label { font-size: 11px; color: var(--text-light); margin-top: 2px; }
+@media (max-width: 768px) {
+  .container { padding: 12px; }
+  .header { padding: 24px 20px; }
+  .header h1 { font-size: 22px; }
+  .link-grid { grid-template-columns: 1fr; }
+  .tab-nav { gap: 2px; padding: 4px; }
+  .tab-btn { padding: 8px 10px; font-size: 12px; }
+  .review-stats { grid-template-columns: repeat(3, 1fr); }
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1>🐧 玉鑫的转正之路</h1>
+    <p class="subtitle">光子招聘实习通关手册 · 向着offer鹅冲！</p>
+    <span class="offer-badge">🐧 让offer鹅主动来敲门～</span>
+    <div class="meta">
+      <span>👤 玉鑫</span>
+      <span>👨‍💼 Mentor：李岩</span>
+      <span>👑 Leader：包包</span>
+      <span>📅 2026.05 - 2026.11</span>
+      <span>🎨 美术开源 + 策划Sourcing</span>
+    </div>
+  </div>
+
+  <div class="tab-nav">
+    <button class="tab-btn active" onclick="switchTab('learn')">📚 学习资料</button>
+    <button class="tab-btn" onclick="switchTab('checklist')">✅ 入职清单</button>
+    <button class="tab-btn" onclick="switchTab('tools')">🔧 常用系统</button>
+    <button class="tab-btn" onclick="switchTab('plan')">📋 6个月计划</button>
+    <button class="tab-btn" onclick="switchTab('review')">✍️ 每周Review</button>
+    <button class="tab-btn" onclick="switchTab('track')">📊 Sourcing Track</button>
+    <button class="tab-btn" onclick="switchTab('notes')">💬 注意事项</button>
+  </div>
+
+  <!-- Tab 1: 学习资料 -->
+  <div id="tab-learn" class="tab-content active">
+    <div class="card">
+      <h2>🔥 行业动态渠道（日常关注）</h2>
+      <p style="font-size:13px;color:var(--text-light);margin-bottom:12px;">每天花15分钟浏览，保持对行业的敏感度</p>
+      <div class="link-grid">
+        <div class="link-item" style="cursor:default"><div class="icon" style="background:#FEF3C7">📱</div><div class="info"><div class="name">公众号推荐</div><div class="desc">游戏葡萄、游戏茶馆、腾讯游戏学堂、竞核、GameRes游资网、游戏研究社</div></div><span class="tag tag-basic">必关注</span></div>
+        <div class="link-item" style="cursor:default"><div class="icon" style="background:#EDE9FE">📲</div><div class="info"><div class="name">App推荐</div><div class="desc">TapTap、机核、小黑盒、Steam Mobile、七麦数据</div></div><span class="tag tag-basic">必关注</span></div>
+      </div>
+    </div>
+    <div class="card">
+      <h2>📖 游戏行业知识入门</h2>
+      <h3>行业概览</h3>
+      <div class="link-grid">
+        <a href="https://zhuanlan.zhihu.com/p/26457799" target="_blank" class="link-item"><div class="icon" style="background:#EDE9FE">📝</div><div class="info"><div class="name">游戏研发流程简介</div><div class="desc">知乎 · 从策划到上线的完整流程</div></div><span class="tag tag-basic">必学</span></a>
+        <a href="https://zhuanlan.zhihu.com/p/20028850900" target="_blank" class="link-item"><div class="icon" style="background:#EDE9FE">🎮</div><div class="info"><div class="name">2024游戏行业年度回顾</div><div class="desc">知乎 · 黑神话/国产3A/行业趋势</div></div><span class="tag tag-basic">必学</span></a>
+        <a href="https://www.zhihu.com/question/67359146/answer/252086747" target="_blank" class="link-item"><div class="icon" style="background:#EDE9FE">🏢</div><div class="info"><div class="name">游戏品类基础知识</div><div class="desc">知乎 · 熟知主要品类简写和代表游戏</div></div><span class="tag tag-basic">必学</span></a>
+        <a href="https://game.woa.com/topics" target="_blank" class="link-item"><div class="icon" style="background:#D1FAE5">🏛️</div><div class="info"><div class="name">腾讯游戏知识库 · 品类专题</div><div class="desc">公司KM · 射击/动作/MOBA/RPG详细知识</div></div><span class="tag tag-basic">必学</span></a>
+      </div>
+      <h3>公司与组织架构</h3>
+      <div class="link-grid">
+        <a href="https://www.zhihu.com/question/53354065/answer/134703751" target="_blank" class="link-item"><div class="icon" style="background:#EDE9FE">🏢</div><div class="info"><div class="name">常见国内游戏公司的组织架构</div><div class="desc">知乎 · 了解竞品公司怎么组织</div></div><span class="tag tag-basic">必学</span></a>
+        <a href="https://s3.woa.com/teams/k100035?company_from=1aa2c0363bb411ec9d760a78a976ded3" target="_blank" class="link-item"><div class="icon" style="background:#FEF3C7">🔍</div><div class="info"><div class="name">行研图书馆IEG专栏</div><div class="desc">HiS3 · Talent mapping图书馆/企业研究</div></div><span class="tag tag-advanced">进阶</span></a>
+      </div>
+      <h3>岗位知识（重点：美术 & 策划）</h3>
+      <div class="link-grid">
+        <a href="https://www.bilibili.com/video/BV1Qb411k7Js" target="_blank" class="link-item"><div class="icon" style="background:#FEE2E2">▶️</div><div class="info"><div class="name">游戏岗位全览视频</div><div class="desc">B站 · 游戏公司各岗位职能介绍</div></div><span class="tag tag-basic">必学</span></a>
+        <a href="https://www.hxsd.com/information/13708" target="_blank" class="link-item"><div class="icon" style="background:#FCE7F3">🎨</div><div class="info"><div class="name">游戏美术岗位详解</div><div class="desc">原画/3D建模/角色/场景/TA/特效/动画</div></div><span class="tag tag-basic">必学</span></a>
+        <a href="https://gameinstitute.qq.com/talk" target="_blank" class="link-item"><div class="icon" style="background:#D1FAE5">📐</div><div class="info"><div class="name">腾讯游戏学堂 · 策划课程</div><div class="desc">系统策划/关卡策划/战斗策划等科普</div></div><span class="tag tag-basic">必学</span></a>
+        <a href="https://www.bilibili.com/video/BV1ft411v77L" target="_blank" class="link-item"><div class="icon" style="background:#FEF3C7">▶️</div><div class="info"><div class="name">游戏引擎岗位详解</div><div class="desc">B站 · UE/Unity引擎相关岗位</div></div><span class="tag tag-advanced">进阶</span></a>
+      </div>
+      <div class="note-box">💡 <b>重点关注：</b>美术岗位（原画/3D建模/TA/场景/角色/特效）和策划岗位（系统/关卡/数值/战斗/主策划）是你sourcing的主要方向，务必深入理解各岗位职能差异～</div>
+    </div>
+    <div class="card">
+      <h2>🎯 招聘专业知识</h2>
+      <h3>Mapping & Sourcing基本功</h3>
+      <div class="link-grid">
+        <a href="https://www.zhihu.com/question/27268879/answer/191360985" target="_blank" class="link-item"><div class="icon" style="background:#EDE9FE">🗺️</div><div class="info"><div class="name">Mapping基本功入门</div><div class="desc">知乎 · mapping方法论基础</div></div><span class="tag tag-basic">必学</span></a>
+        <a href="https://www.zhihu.com/question/21306865" target="_blank" class="link-item"><div class="icon" style="background:#EDE9FE">🔍</div><div class="info"><div class="name">如何做好人才寻访sourcing</div><div class="desc">知乎 · 实操技巧和经验汇总</div></div><span class="tag tag-basic">必学</span></a>
+        <a href="https://s3.woa.com/teams/k100008/docs/2780f660618411ecbcbe0e723bad073a?company_from=1aa2c0363bb411ec9d760a78a976ded3" target="_blank" class="link-item"><div class="icon" style="background:#FEF3C7">💬</div><div class="info"><div class="name">社交媒体招聘技巧分享</div><div class="desc">社交渠道sourcing进阶</div></div><span class="tag tag-advanced">进阶</span></a>
+        <a href="https://s3.woa.com/teams/k100008/docs/0c5bb122dfe211ecaea376c81caac4e0?company_from=1aa2c0363bb411ec9d760a78a976ded3" target="_blank" class="link-item"><div class="icon" style="background:#FEF3C7">🗺️</div><div class="info"><div class="name">社交招聘与人才地图Mapping</div><div class="desc">系统化mapping方法</div></div><span class="tag tag-advanced">进阶</span></a>
+        <a href="https://www.zhihu.com/question/19551593" target="_blank" class="link-item"><div class="icon" style="background:#FEF3C7">📊</div><div class="info"><div class="name">如何做行业研究和竞品分析</div><div class="desc">知乎 · 行业研究方法论</div></div><span class="tag tag-advanced">进阶</span></a>
+      </div>
+      <h3>培训课程</h3>
+      <div class="link-grid">
+        <a href="https://s3.woa.com/learning/31/list?company_from=1aa2c0363bb411ec9d760a78a976ded3" target="_blank" class="link-item"><div class="icon" style="background:#D1FAE5">🎓</div><div class="info"><div class="name">招聘新力量（必修）</div><div class="desc">招聘新人入门必修课程</div></div><span class="tag tag-basic">必学</span></a>
+        <a href="https://s3.woa.com/teams/k100008/classes?category_id=&company_from=1aa2c0363bb411ec9d760a78a976ded3" target="_blank" class="link-item"><div class="icon" style="background:#D1FAE5">🎓</div><div class="info"><div class="name">招聘新力量（进阶）</div><div class="desc">进阶课程内容</div></div><span class="tag tag-advanced">进阶</span></a>
+        <a href="https://km.woa.com/group/46504?kmref=search" target="_blank" class="link-item"><div class="icon" style="background:#D1FAE5">📚</div><div class="info"><div class="name">IEG招聘经理知识库</div><div class="desc">海量实战经验和案例</div></div><span class="tag tag-advanced">进阶</span></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tab 2: 入职清单 -->
+  <div id="tab-checklist" class="tab-content">
+    <div class="card">
+      <h2>✅ 入职第一周清单</h2>
+      <p style="font-size:13px;color:var(--text-light);margin-bottom:12px;">完成后打勾，向offer鹅迈出第一步 🐧✨</p>
+      <div class="progress-bar"><div class="progress-fill" id="checklist-progress" style="width:0%"></div></div>
+      <p style="font-size:12px;color:var(--text-light);margin-top:4px;margin-bottom:16px;" id="checklist-progress-text">已完成 0/10 项</p>
+      <div id="checklist-container"></div>
+    </div>
+  </div>
+
+  <!-- Tab 3: 常用系统 -->
+  <div id="tab-tools" class="tab-content">
+    <div class="card">
+      <h2>🔧 招聘日常操作系统</h2>
+      <div class="link-grid">
+        <a href="https://hrright.woa.com/home" target="_blank" class="link-item"><div class="icon" style="background:#EDE9FE">🔑</div><div class="info"><div class="name">权限中台</div><div class="desc">申请各系统权限入口（Day1必做）</div></div></a>
+        <a href="https://hr.woa.com" target="_blank" class="link-item"><div class="icon" style="background:#EDE9FE">👤</div><div class="info"><div class="name">HR门户</div><div class="desc">HR综合服务入口</div></div></a>
+        <a href="https://zhaopin.woa.com/zhaopin/Home" target="_blank" class="link-item"><div class="icon" style="background:#D1FAE5">💼</div><div class="info"><div class="name">招聘系统门户</div><div class="desc">招聘全流程操作（主战场）</div></div></a>
+        <a href="https://zhaopin.woa.com/resume/campus/CampusResumeList?keyword=" target="_blank" class="link-item"><div class="icon" style="background:#D1FAE5">🎓</div><div class="info"><div class="name">校招简历库</div><div class="desc">校招候选人管理</div></div></a>
+        <a href="https://ats.woa.com/talent_pool" target="_blank" class="link-item"><div class="icon" style="background:#D1FAE5">👔</div><div class="info"><div class="name">社招简历库</div><div class="desc">社招候选人管理</div></div></a>
+        <a href="https://zhaopin.woa.com/dashboard/new-home" target="_blank" class="link-item"><div class="icon" style="background:#FEF3C7">📊</div><div class="info"><div class="name">招聘数据看版</div><div class="desc">数据分析和监控</div></div></a>
+        <a href="https://zhaopin.woa.com/rm/operator/home" target="_blank" class="link-item"><div class="icon" style="background:#FEF3C7">📢</div><div class="info"><div class="name">伯乐/媒体渠道资源</div><div class="desc">申请外部渠道资源</div></div></a>
+        <a href="https://8000.woa.com/v3/Software" target="_blank" class="link-item"><div class="icon" style="background:#FCE7F3">💻</div><div class="info"><div class="name">正版软件下载</div><div class="desc">内网正版软件中心</div></div></a>
+      </div>
+    </div>
+    <div class="card">
+      <h2>📝 工具使用Tips</h2>
+      <div style="font-size:14px;line-height:2;">
+        <p><b>腾讯文档：</b>支持markdown。快捷键在右上角「帮助与反馈」→「快捷键」查看。善用批注功能。</p>
+        <p><b>企微日历：</b>可以查看同事空闲时间，约面试前先看面试官日历。</p>
+        <p><b>约会议室：</b>微信小程序搜「tencent home」→ 预定会议。热门时段提前1-2天约。</p>
+        <p><b>正版软件：</b>在 8000.woa.com/v3/Software 搜，不要自己下载破解版。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tab 4: 6个月计划 -->
+  <div id="tab-plan" class="tab-content">
+    <div class="card">
+      <h2>📋 6个月工作计划</h2>
+      <p style="font-size:13px;color:var(--text-light);margin-bottom:16px;">S美术泛校招开源 + 天玑美术社招开源 + S新项目资深策划sourcing+mapping</p>
+      <div style="overflow-x:auto;">
+        <table class="plan-table">
+          <thead><tr><th>阶段</th><th>时间</th><th>工作目标</th><th>具体任务</th><th>产出/交付物</th></tr></thead>
+          <tbody>
+            <tr><td class="phase-cell" rowspan="2">第一阶段<br>快速上手</td><td><b>W1</b></td><td>业务熟悉 + sourcing实操启动</td><td>1. 了解S/天玑组织架构和在招方向<br>2. 学习Offer系统、配置Boss/猎聘<br>3. 直接开始美术sourcing实操<br>4. 掌握搜索关键词体系<br>5. 了解竞品工作室</td><td>首批简历推荐<br>关键词库v1</td></tr>
+            <tr><td><b>W2</b></td><td>sourcing放量 + mapping方法学习</td><td>1. 美术sourcing持续推进<br>2. 学习mapping方法论<br>3. 跟听1-2场面试<br>4. 对齐策划岗位画像<br>5. 锁定策划mapping目标公司</td><td>简历持续推荐<br>策划画像记录</td></tr>
+            <tr><td class="phase-cell" rowspan="3">第二阶段<br>双线并行</td><td><b>W3-4</b></td><td>美术开源双线放量<br>（S校招+天玑社招）</td><td>1. S美术校招sourcing放量<br>2. 天玑美术社招同步放量<br>3. 校招走院校pool，社招走行业渠道<br>4. 建立候选人标签体系<br>5. 打磨触达话术</td><td>美术候选人pool表<br>周报</td></tr>
+            <tr><td><b>W5-6</b></td><td>策划sourcing启动<br>mapping辅助精准定位</td><td>1. 策划sourcing正式启动<br>2. 通过mapping锁定目标人选<br>3. 定向触达和沟通<br>4. 美术双线持续产出</td><td>策划简历推荐<br>Mapping报告v1</td></tr>
+            <tr><td><b>W7-8</b></td><td>策划sourcing深入<br>美术渠道优化</td><td>1. 策划扩展到3-5家目标公司<br>2. 深度拆解组织架构<br>3. 推进候选人进面试<br>4. 美术分析渠道效果</td><td>策划简历推荐<br>Mapping v2</td></tr>
+            <tr><td class="phase-cell" rowspan="3">第三阶段<br>稳定产出</td><td><b>W9-10</b></td><td>双线稳定交付<br>推动面试转化</td><td>1. 美术+策划双线稳定产出<br>2. 策划mapping报告完善<br>3. 重点跟进高潜候选人<br>4. 复盘数据优化策略</td><td>Mapping完整报告<br>面试跟进表</td></tr>
+            <tr><td><b>W11-12</b></td><td>转化攻坚</td><td>1. 高潜候选人重点推进面试<br>2. 面试安排全程协调<br>3. 二次激活未回复候选人</td><td>面试推进记录</td></tr>
+            <tr><td><b>W13-14</b></td><td>方法论沉淀</td><td>1. 整理sourcing方法论文档<br>2. 更新mapping终稿<br>3. 总结渠道投入产出比</td><td>方法论文档<br>Mapping终稿</td></tr>
+            <tr><td class="phase-cell" rowspan="3">第四阶段<br>独立运作</td><td><b>W15-16</b></td><td>独立承担sourcing</td><td>1. 独立负责周度规划和执行<br>2. 尝试新岗位方向<br>3. 协助带教新实习生</td><td>独立周报</td></tr>
+            <tr><td><b>W17-18</b></td><td>深化行业认知</td><td>1. 持续双线稳定产出<br>2. 深化行业人才市场认知<br>3. 输出人才市场洞察</td><td>人才洞察报告</td></tr>
+            <tr><td><b>W19-20</b></td><td>成果巩固</td><td>1. 成果盘点<br>2. 候选人资料全量整理<br>3. 知识库归档</td><td>成果盘点表</td></tr>
+            <tr><td class="phase-cell" rowspan="2">第五阶段<br>收尾交接</td><td><b>W21-22</b></td><td>知识交接</td><td>1. 整理所有候选人资料<br>2. 输出实习总结<br>3. 制作交接文档</td><td>交接文档<br>实习总结</td></tr>
+            <tr><td><b>W23-24</b></td><td>复盘答辩</td><td>1. 答辩PPT<br>2. 成果分享<br>3. 职业规划沟通</td><td>答辩PPT 🐧✨</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card">
+      <h2>🎯 工作目标总览</h2>
+      <div id="goals-container"></div>
+    </div>
+  </div>
+
+  <!-- Tab 5: 每周Review -->
+  <div id="tab-review" class="tab-content">
+    <div class="card">
+      <h2>✍️ 每周工作Review</h2>
+      <p style="font-size:13px;color:var(--text-light);margin-bottom:8px;">每周五填写，记录本周产出和下周计划～ 数据自动保存。</p>
+      <div class="progress-bar"><div class="progress-fill" id="review-progress" style="width:0%"></div></div>
+      <p style="font-size:12px;color:var(--text-light);margin-top:4px;" id="review-progress-text">已完成 0/24 周</p>
+    </div>
+    <div id="review-container"></div>
+  </div>
+
+  <!-- Tab 6: Sourcing Track -->
+  <div id="tab-track" class="tab-content">
+    <div class="card">
+      <h2>📊 Sourcing Track · 候选人追踪</h2>
+      <p style="font-size:13px;color:var(--text-light);margin-bottom:12px;">记录每位候选人的sourcing进展，数据实时保存 📝</p>
+      <!-- 数据看板 -->
+      <div class="stats-card">
+        <div class="stats-grid" id="track-stats"></div>
+      </div>
+      <div style="display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap;">
+        <button onclick="addCandidate()" style="background:linear-gradient(135deg,var(--primary),#8B5CF6);color:white;border:none;padding:8px 16px;border-radius:8px;cursor:pointer;font-size:13px;font-weight:500;">+ 添加候选人</button>
+        <button onclick="exportTrack()" style="background:var(--green);color:white;border:none;padding:8px 16px;border-radius:8px;cursor:pointer;font-size:13px;">📥 导出CSV</button>
+        <button onclick="toggleCustomFields()" style="background:#8B5CF6;color:white;border:none;padding:8px 16px;border-radius:8px;cursor:pointer;font-size:13px;">⚙️ 自定义字段</button>
+      </div>
+      <div id="custom-fields-panel" style="display:none;background:#F5F3FF;border:1px solid rgba(99,102,241,0.2);border-radius:10px;padding:16px;margin-bottom:16px;">
+        <h4 style="font-size:14px;margin-bottom:8px;">自定义字段管理</h4>
+        <p style="font-size:12px;color:var(--text-light);margin-bottom:10px;">添加你需要的额外字段（如：意向度、薪资预期等）</p>
+        <div id="custom-fields-list"></div>
+        <div style="display:flex;gap:8px;margin-top:8px;">
+          <input type="text" id="new-field-name" placeholder="新字段名称..." style="flex:1;padding:6px 10px;border:1px solid var(--border);border-radius:6px;font-size:13px;">
+          <button onclick="addCustomField()" style="background:var(--primary);color:white;border:none;padding:6px 14px;border-radius:6px;cursor:pointer;font-size:13px;">添加</button>
+        </div>
+      </div>
+      <div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;align-items:center;">
+        <span style="font-size:12px;color:var(--text-light);">筛选：</span>
+        <select id="track-filter-direction" onchange="renderTrack()" style="padding:4px 8px;border:1px solid var(--border);border-radius:6px;font-size:12px;"><option value="">全部方向</option><option value="S美术校招">S美术校招</option><option value="天玑美术社招">天玑美术社招</option><option value="策划">策划</option></select>
+        <select id="track-filter-status" onchange="renderTrack()" style="padding:4px 8px;border:1px solid var(--border);border-radius:6px;font-size:12px;"><option value="">全部状态</option><option value="待触达">待触达</option><option value="已触达">已触达</option><option value="沟通中">沟通中</option><option value="已推荐">已推荐</option><option value="面试中">面试中</option><option value="已offer">已offer</option><option value="不合适">不合适</option><option value="暂无意向">暂无意向</option></select>
+        <span id="track-count" style="font-size:12px;color:var(--text-light);margin-left:auto;"></span>
+      </div>
+      <div style="overflow-x:auto;">
+        <table id="track-table" style="width:100%;border-collapse:collapse;font-size:12px;min-width:900px;display:none;"><thead id="track-thead"></thead><tbody id="track-tbody"></tbody></table>
+      </div>
+      <div id="track-empty" style="text-align:center;padding:40px;color:var(--text-light);font-size:14px;">还没有候选人记录，点击「+ 添加候选人」开始吧 🐧✨</div>
+    </div>
+  </div>
+
+  <!-- Tab 7: 注意事项 -->
+  <div id="tab-notes" class="tab-content">
+    <div class="card">
+      <h2>🔒 保密要求（红线）</h2>
+      <div class="danger-box"><p><b>以下是绝对红线，请务必遵守：</b></p></div>
+      <ul style="padding-left:20px;font-size:14px;line-height:2.2;">
+        <li>候选人信息严格保密，不得以任何形式外泄</li>
+        <li>薪资、编制、Offer数据属于<b>高度机密</b></li>
+        <li>内部决策和团队讨论不对外分享</li>
+        <li>使用公司设备处理工作数据</li>
+        <li>不在个人社交媒体透露公司招聘相关信息</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h2>💡 一些小建议</h2>
+      <p style="font-size:13px;color:var(--text-light);margin-bottom:12px;">不是硬性规定，是帮你更顺畅工作的经验分享～</p>
+      <ul style="padding-left:20px;font-size:14px;line-height:2.2;color:#374151;">
+        <li>💬 建议<b>每日</b>花几分钟更新一下sourcing进展，方便自己回顾也方便mentor了解</li>
+        <li>📝 <b>每周</b>简单写个周报（做了什么 + 下周想做什么 + 有没有卡住的地方）</li>
+        <li>☕ <b>每两周</b>和mentor聊一次，同步方向、答疑、调整节奏</li>
+        <li>👍 推荐简历时顺手附上推荐理由（一两句话就好），业务方看着更方便</li>
+        <li>🗂️ mapping报告尽量有结构感（按公司拆解），比一长串名字更清晰</li>
+        <li>🔄 候选人状态记得及时更新，这样自己不会忘，团队也好协同</li>
+        <li>🙋 有问题随时问！问比猜靠谱，团队氛围很开放的～</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h2>❓ 常见问题FAQ</h2>
+      <div class="faq-item"><div class="q">Q: 不懂游戏行业怎么办？</div><div class="a">A: 太正常了！先看学习资料tab，2周内建立基础认知。多看JD+行业新闻就好～</div></div>
+      <div class="faq-item"><div class="q">Q: Sourcing找不到合适的人？</div><div class="a">A: 换关键词、换渠道、看看同事怎么搜的、问mentor拿参考画像。</div></div>
+      <div class="faq-item"><div class="q">Q: 候选人不回复怎么办？</div><div class="a">A: 换话术、换时间段、换渠道触达、过几天再试。不回复≠不感兴趣哦～</div></div>
+      <div class="faq-item"><div class="q">Q: 怎么判断简历是否有效？</div><div class="a">A: 对照JD核心要求，满足60%以上就推，让业务方来判断。</div></div>
+      <div class="faq-item"><div class="q">Q: Mapping怎么开始？</div><div class="a">A: 先和mentor确认画像，锁定2-3家目标公司，从LinkedIn/脉脉拆解架构。</div></div>
+      <div class="faq-item"><div class="q">Q: 系统权限怎么申请？</div><div class="a">A: 权限中台统一申请，不确定的找mentor就行。</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="save-bar"><button class="save-btn" onclick="saveAll()">💾 保存</button></div>
+<div class="save-notice" id="save-notice">✅ 已保存到本地</div>
+
+<script>
+function switchTab(tabId) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + tabId).classList.add('active');
+  event.target.classList.add('active');
+}
+
+const STORAGE_KEY = 'photon_yuxin_hub';
+const TRACK_KEY = 'photon_yuxin_track';
+const FIELDS_KEY = 'photon_yuxin_fields';
+
+function loadData() { try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; } catch(e) { return {}; } }
+
+function saveAll() {
+  const data = { reviews: {}, checklist: {}, goals: {} };
+  for (let w = 1; w <= 24; w++) {
+    data.reviews[w] = {
+      tasks: el(`review-${w}-tasks`), done: el(`review-${w}-done`),
+      plan: el(`review-${w}-plan`), issues: el(`review-${w}-issues`),
+      s_art: el(`review-${w}-s-art`), s_art_iv: el(`review-${w}-s-art-iv`),
+      tj_art: el(`review-${w}-tj-art`), tj_art_iv: el(`review-${w}-tj-art-iv`),
+      plan_c: el(`review-${w}-plan-c`), plan_iv: el(`review-${w}-plan-iv`),
+    };
+  }
+  document.querySelectorAll('#checklist-container input[type="checkbox"]').forEach((cb, i) => { data.checklist[i] = cb.checked; });
+  document.querySelectorAll('.goal-progress').forEach((input, i) => { data.goals[i] = input.value; });
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+  document.getElementById('save-notice').style.display = 'block';
+  setTimeout(() => document.getElementById('save-notice').style.display = 'none', 2000);
+  updateProgress();
+}
+function el(id) { return document.getElementById(id)?.value || ''; }
+
+function updateProgress() {
+  const data = loadData();
+  let reviewDone = 0;
+  for (let w = 1; w <= 24; w++) { if (data.reviews?.[w]?.done?.trim()) reviewDone++; }
+  document.getElementById('review-progress').style.width = (reviewDone/24*100)+'%';
+  document.getElementById('review-progress-text').textContent = `已完成 ${reviewDone}/24 周`;
+  const checks = document.querySelectorAll('#checklist-container input[type="checkbox"]:checked');
+  const total = document.querySelectorAll('#checklist-container input[type="checkbox"]');
+  if (total.length > 0) {
+    document.getElementById('checklist-progress').style.width = (checks.length/total.length*100)+'%';
+    document.getElementById('checklist-progress-text').textContent = `已完成 ${checks.length}/${total.length} 项`;
+  }
+}
+
+// Weekly Review - 从5.11开始
+function generateReviews() {
+  const container = document.getElementById('review-container');
+  const data = loadData();
+  const weeks = [
+    '5/11-5/15','5/18-5/22','5/25-5/29','6/1-6/5','6/8-6/12','6/15-6/19','6/22-6/26','6/29-7/3',
+    '7/6-7/10','7/13-7/17','7/20-7/24','7/27-7/31','8/3-8/7','8/10-8/14','8/17-8/21','8/24-8/28',
+    '8/31-9/4','9/7-9/11','9/14-9/18','9/21-9/25','9/28-10/2','10/5-10/9','10/12-10/16','10/19-10/23'
+  ];
+  for (let w = 1; w <= 24; w++) {
+    const saved = data.reviews?.[w] || {};
+    container.innerHTML += `
+      <div class="review-week ${w<=1?'open':''}" id="review-week-${w}">
+        <div class="review-header" onclick="toggleReview(${w})">
+          <h4><span class="arrow">▶</span> W${w} · ${weeks[w-1]}</h4>
+          <span class="date">${getPhase(w)}</span>
+        </div>
+        <div class="review-body">
+          <div class="review-stats">
+            <div class="stat-item"><label>S美术推荐</label><input type="number" id="review-${w}-s-art" value="${saved.s_art||''}" placeholder="0" min="0"></div>
+            <div class="stat-item"><label>S美术进面</label><input type="number" id="review-${w}-s-art-iv" value="${saved.s_art_iv||''}" placeholder="0" min="0"></div>
+            <div class="stat-item"><label>天玑推荐</label><input type="number" id="review-${w}-tj-art" value="${saved.tj_art||''}" placeholder="0" min="0"></div>
+            <div class="stat-item"><label>天玑进面</label><input type="number" id="review-${w}-tj-art-iv" value="${saved.tj_art_iv||''}" placeholder="0" min="0"></div>
+            <div class="stat-item"><label>策划推荐</label><input type="number" id="review-${w}-plan-c" value="${saved.plan_c||''}" placeholder="0" min="0"></div>
+            <div class="stat-item"><label>策划进面</label><input type="number" id="review-${w}-plan-iv" value="${saved.plan_iv||''}" placeholder="0" min="0"></div>
+          </div>
+          <div class="review-field"><label>本周核心任务</label><textarea id="review-${w}-tasks" placeholder="本周要做什么...">${saved.tasks||''}</textarea></div>
+          <div class="review-field"><label>完成情况</label><textarea id="review-${w}-done" placeholder="做了什么，达成了什么...">${saved.done||''}</textarea></div>
+          <div class="review-field"><label>下周计划</label><textarea id="review-${w}-plan" placeholder="下周打算做什么...">${saved.plan||''}</textarea></div>
+          <div class="review-field"><label>问题 & 需要支持</label><textarea id="review-${w}-issues" placeholder="遇到什么困难，需要帮忙的...">${saved.issues||''}</textarea></div>
+        </div>
+      </div>`;
+  }
+}
+function getPhase(w) { if(w<=2)return'快速上手期';if(w<=8)return'双线并行期';if(w<=14)return'稳定产出期';if(w<=20)return'独立运作期';return'收尾交接期'; }
+function toggleReview(w) { document.getElementById(`review-week-${w}`).classList.toggle('open'); }
+
+// Checklist
+function generateChecklist() {
+  const items = [
+    {day:'Day1',text:'入职手续办理完成'},{day:'Day1',text:'权限中台申请系统权限 + 文档权限'},
+    {day:'Day1',text:'加入团队企微群'},{day:'Day1',text:'阅读在招岗位JD（能说出3个核心方向）'},
+    {day:'Day2',text:'学习招聘系统基本操作'},{day:'Day2',text:'Boss直聘企业账号配置完成'},
+    {day:'Day2',text:'了解S工作室/天玑组织架构'},{day:'Day3',text:'开始sourcing实操，提交首批简历'},
+    {day:'Day4',text:'跟听1场面试，记录观察笔记'},{day:'Day5',text:'输出第一周周报'},
+  ];
+  const container = document.getElementById('checklist-container');
+  const data = loadData();
+  items.forEach((item,i) => {
+    container.innerHTML += `<div class="checklist-item"><input type="checkbox" ${data.checklist?.[i]?'checked':''} onchange="updateProgress()"><div><span style="font-size:11px;color:var(--primary);font-weight:600;">${item.day}</span><div style="font-size:14px;">${item.text}</div></div></div>`;
+  });
+}
+
+// Goals
+function generateGoals() {
+  const goals = [{name:'快速上手sourcing全流程',phase:'第一阶段'},{name:'S美术泛校招开源',phase:'第一~四阶段'},{name:'天玑美术社招开源',phase:'第一~四阶段'},{name:'S新项目资深策划sourcing',phase:'第二~四阶段'},{name:'策划方向mapping报告',phase:'第二~三阶段'},{name:'推动候选人面试转化',phase:'第二~四阶段'},{name:'沉淀sourcing方法论',phase:'第三~四阶段'},{name:'独立承担sourcing模块',phase:'第四阶段'},{name:'完成知识交接与复盘',phase:'第五阶段'}];
+  const container = document.getElementById('goals-container');
+  const data = loadData();
+  goals.forEach((g,i) => {
+    container.innerHTML += `<div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #F3F4F6;"><div style="flex:1;"><div style="font-weight:500;font-size:14px;">${g.name}</div><div style="font-size:12px;color:var(--text-light);">${g.phase}</div></div><input class="goal-progress" type="text" value="${data.goals?.[i]||''}" placeholder="进展..." style="width:150px;padding:6px 10px;border:1px solid var(--border);border-radius:6px;font-size:13px;"></div>`;
+  });
+}
+
+// ===== Sourcing Track =====
+const DEFAULT_FIELDS = ['姓名','方向','岗位','公司','渠道','状态','推荐日期','简历链接','Comments'];
+function getCustomFields() { try{return JSON.parse(localStorage.getItem(FIELDS_KEY))||[];}catch(e){return[];} }
+function getAllFields() { return [...DEFAULT_FIELDS,...getCustomFields()]; }
+function getTrackData() { try{return JSON.parse(localStorage.getItem(TRACK_KEY))||[];}catch(e){return[];} }
+function saveTrackData(d) { localStorage.setItem(TRACK_KEY,JSON.stringify(d)); }
+
+function toggleCustomFields() { const p=document.getElementById('custom-fields-panel'); p.style.display=p.style.display==='none'?'block':'none'; renderCustomFieldsList(); }
+function renderCustomFieldsList() {
+  const fields=getCustomFields(), c=document.getElementById('custom-fields-list');
+  c.innerHTML = fields.length===0?'<p style="font-size:12px;color:var(--text-light);">暂无自定义字段</p>':
+    fields.map((f,i)=>`<div style="display:flex;align-items:center;gap:8px;padding:4px 0;"><span style="flex:1;font-size:13px;">📌 ${f}</span><button onclick="removeCustomField(${i})" style="background:#FEE2E2;color:#DC2626;border:none;padding:2px 8px;border-radius:4px;cursor:pointer;font-size:11px;">删除</button></div>`).join('');
+}
+function addCustomField() {
+  const input=document.getElementById('new-field-name'),name=input.value.trim();
+  if(!name)return;
+  const fields=getCustomFields();
+  if(fields.includes(name)||DEFAULT_FIELDS.includes(name)){alert('字段已存在');return;}
+  fields.push(name); localStorage.setItem(FIELDS_KEY,JSON.stringify(fields));
+  input.value=''; renderCustomFieldsList(); renderTrack();
+}
+function removeCustomField(i) { const f=getCustomFields();f.splice(i,1);localStorage.setItem(FIELDS_KEY,JSON.stringify(f));renderCustomFieldsList();renderTrack(); }
+
+function addCandidate() {
+  const data=getTrackData(), item={};
+  getAllFields().forEach(f=>{item[f]='';});
+  item['状态']='待触达'; item['推荐日期']=new Date().toISOString().split('T')[0]; item['_id']=Date.now();
+  data.unshift(item); saveTrackData(data); renderTrack();
+}
+function deleteCandidate(id) { if(!confirm('确定删除？'))return; saveTrackData(getTrackData().filter(d=>d._id!==id)); renderTrack(); }
+function updateCandidate(id,field,value) { const data=getTrackData(),item=data.find(d=>d._id===id); if(item){item[field]=value;saveTrackData(data);renderTrackStats();} }
+
+function renderTrackStats() {
+  const data=getTrackData(), stats=document.getElementById('track-stats');
+  const total=data.length, recommended=data.filter(d=>['已推荐','面试中','已offer'].includes(d['状态'])).length;
+  const interviewing=data.filter(d=>d['状态']==='面试中').length;
+  const offered=data.filter(d=>d['状态']==='已offer').length;
+  const sArt=data.filter(d=>d['方向']==='S美术校招').length;
+  const tjArt=data.filter(d=>d['方向']==='天玑美术社招').length;
+  const planD=data.filter(d=>d['方向']==='策划').length;
+  stats.innerHTML = `
+    <div class="stat-box"><div class="num">${total}</div><div class="label">总候选人</div></div>
+    <div class="stat-box"><div class="num" style="color:#F59E0B">${recommended}</div><div class="label">已推荐+</div></div>
+    <div class="stat-box"><div class="num" style="color:#10B981">${interviewing}</div><div class="label">面试中</div></div>
+    <div class="stat-box"><div class="num" style="color:#EC4899">${offered}</div><div class="label">已offer 🎉</div></div>
+    <div class="stat-box"><div class="num" style="color:#6366F1">${sArt}</div><div class="label">S美术</div></div>
+    <div class="stat-box"><div class="num" style="color:#8B5CF6">${tjArt}</div><div class="label">天玑美术</div></div>
+    <div class="stat-box"><div class="num" style="color:#F97316">${planD}</div><div class="label">策划</div></div>
+  `;
+}
+
+function renderTrack() {
+  const data=getTrackData(), allFields=getAllFields();
+  const dirF=document.getElementById('track-filter-direction').value;
+  const statusF=document.getElementById('track-filter-status').value;
+  let filtered=data;
+  if(dirF) filtered=filtered.filter(d=>d['方向']===dirF);
+  if(statusF) filtered=filtered.filter(d=>d['状态']===statusF);
+  document.getElementById('track-count').textContent=`显示 ${filtered.length} / 总 ${data.length}`;
+  document.getElementById('track-empty').style.display=data.length===0?'block':'none';
+  document.getElementById('track-table').style.display=data.length===0?'none':'table';
+  renderTrackStats();
+  const thead=document.getElementById('track-thead');
+  thead.innerHTML=`<tr>${allFields.map(f=>`<th style="background:linear-gradient(135deg,var(--primary),#8B5CF6);color:white;padding:8px;text-align:left;font-size:11px;white-space:nowrap;">${f}</th>`).join('')}<th style="background:linear-gradient(135deg,var(--primary),#8B5CF6);color:white;padding:8px;font-size:11px;">操作</th></tr>`;
+  const tbody=document.getElementById('track-tbody');
+  tbody.innerHTML=filtered.map(item=>{
+    return `<tr style="border-bottom:1px solid var(--border);">${allFields.map(f=>{
+      if(f==='方向') return `<td style="padding:5px 6px;"><select onchange="updateCandidate(${item._id},'${f}',this.value)" style="padding:3px;border:1px solid var(--border);border-radius:4px;font-size:11px;"><option value="">-</option><option value="S美术校招" ${item[f]==='S美术校招'?'selected':''}>S美术校招</option><option value="天玑美术社招" ${item[f]==='天玑美术社招'?'selected':''}>天玑美术社招</option><option value="策划" ${item[f]==='策划'?'selected':''}>策划</option></select></td>`;
+      if(f==='状态') return `<td style="padding:5px 6px;"><select onchange="updateCandidate(${item._id},'${f}',this.value)" style="padding:3px;border:1px solid var(--border);border-radius:4px;font-size:11px;font-weight:500;"><option value="待触达" ${item[f]==='待触达'?'selected':''}>待触达</option><option value="已触达" ${item[f]==='已触达'?'selected':''}>已触达</option><option value="沟通中" ${item[f]==='沟通中'?'selected':''}>沟通中</option><option value="已推荐" ${item[f]==='已推荐'?'selected':''}>已推荐</option><option value="面试中" ${item[f]==='面试中'?'selected':''}>面试中</option><option value="已offer" ${item[f]==='已offer'?'selected':''}>已offer</option><option value="不合适" ${item[f]==='不合适'?'selected':''}>不合适</option><option value="暂无意向" ${item[f]==='暂无意向'?'selected':''}>暂无意向</option></select></td>`;
+      if(f==='渠道') return `<td style="padding:5px 6px;"><select onchange="updateCandidate(${item._id},'${f}',this.value)" style="padding:3px;border:1px solid var(--border);border-radius:4px;font-size:11px;"><option value="">-</option><option value="Boss直聘" ${item[f]==='Boss直聘'?'selected':''}>Boss</option><option value="猎聘" ${item[f]==='猎聘'?'selected':''}>猎聘</option><option value="LinkedIn" ${item[f]==='LinkedIn'?'selected':''}>LinkedIn</option><option value="脉脉" ${item[f]==='脉脉'?'selected':''}>脉脉</option><option value="ArtStation" ${item[f]==='ArtStation'?'selected':''}>ArtStation</option><option value="内部简历库" ${item[f]==='内部简历库'?'selected':''}>内部库</option><option value="校园渠道" ${item[f]==='校园渠道'?'selected':''}>校园</option><option value="其他" ${item[f]==='其他'?'selected':''}>其他</option></select></td>`;
+      if(f==='推荐日期') return `<td style="padding:5px 6px;"><input type="date" value="${item[f]||''}" onchange="updateCandidate(${item._id},'${f}',this.value)" style="padding:2px 4px;border:1px solid var(--border);border-radius:4px;font-size:11px;width:110px;"></td>`;
+      if(f==='简历链接') return `<td style="padding:5px 6px;"><input type="url" value="${item[f]||''}" onchange="updateCandidate(${item._id},'${f}',this.value)" placeholder="粘贴链接" style="padding:2px 4px;border:1px solid var(--border);border-radius:4px;font-size:11px;width:100px;"></td>`;
+      if(f==='Comments') return `<td style="padding:5px 6px;"><input type="text" value="${item[f]||''}" onchange="updateCandidate(${item._id},'${f}',this.value)" placeholder="备注..." style="padding:2px 4px;border:1px solid var(--border);border-radius:4px;font-size:11px;width:140px;"></td>`;
+      return `<td style="padding:5px 6px;"><input type="text" value="${item[f]||''}" onchange="updateCandidate(${item._id},'${f}',this.value)" placeholder="${f}" style="padding:2px 4px;border:1px solid var(--border);border-radius:4px;font-size:11px;width:${f==='姓名'?'65':'80'}px;"></td>`;
+    }).join('')}<td style="padding:5px 6px;"><button onclick="deleteCandidate(${item._id})" style="background:none;border:none;cursor:pointer;font-size:13px;" title="删除">🗑️</button></td></tr>`;
+  }).join('');
+}
+
+function exportTrack() {
+  const data=getTrackData(); if(!data.length){alert('暂无数据');return;}
+  const fields=getAllFields();
+  let csv='\uFEFF'+fields.join(',')+'\n';
+  data.forEach(item=>{csv+=fields.map(f=>`"${(item[f]||'').replace(/"/g,'""')}"`).join(',')+'\n';});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));
+  a.download=`sourcing_track_${new Date().toISOString().split('T')[0]}.csv`; a.click();
+}
+
+document.addEventListener('input',()=>{clearTimeout(window._t);window._t=setTimeout(saveAll,2000);});
+
+generateReviews(); generateChecklist(); generateGoals(); renderTrack(); updateProgress();
+</script>
+</body>
+</html>
