@@ -521,8 +521,9 @@ tr:hover td { background: #FAFAFE; }
     <div class="penguin">🐧</div>
     <h1>Offer鹅 · 光子实习Hub</h1>
     <p class="subtitle">光子招聘团队实习生入职平台<br>走上属于你的offer之路 ✨</p>
-    <input type="email" id="loginEmail" placeholder="输入你的企业邮箱" />
-    <button class="btn-primary" id="loginBtn" onclick="handleLogin()">发送Magic Link 🪄</button>
+    <input type="email" id="loginEmail" placeholder="输入你的邮箱" />
+    <input type="password" id="loginPassword" placeholder="输入密码" style="width:100%;padding:12px 16px;border:1px solid var(--border);border-radius:8px;font-size:14px;margin-top:8px;" />
+    <button class="btn-primary" id="loginBtn" onclick="handleLogin()">登录 🚀</button>
     <p class="login-msg" id="loginMsg"></p>
   </div>
 </div>
@@ -975,32 +976,30 @@ const WEEKS = [];
 // ============================================================
 async function handleLogin() {
   const email = document.getElementById('loginEmail').value.trim();
+  const password = document.getElementById('loginPassword').value;
   const msgEl = document.getElementById('loginMsg');
   const btn = document.getElementById('loginBtn');
 
-  if (!email) {
+  if (!email || !password) {
     msgEl.className = 'login-msg error';
-    msgEl.textContent = '请输入邮箱地址';
+    msgEl.textContent = '请输入邮箱和密码';
     return;
   }
 
   btn.disabled = true;
-  btn.textContent = '发送中...';
+  btn.textContent = '登录中...';
 
-  const { error } = await supabase.auth.signInWithOtp({
+  const { error } = await supabase.auth.signInWithPassword({
     email,
-    options: { emailRedirectTo: window.location.origin + window.location.pathname }
+    password
   });
 
   if (error) {
     msgEl.className = 'login-msg error';
-    msgEl.textContent = '发送失败: ' + error.message;
-  } else {
-    msgEl.className = 'login-msg success';
-    msgEl.textContent = '✅ Magic Link已发送到你的邮箱，请查收并点击链接登录！';
+    msgEl.textContent = '登录失败: ' + error.message;
   }
   btn.disabled = false;
-  btn.textContent = '发送Magic Link 🪄';
+  btn.textContent = '登录 🚀';
 }
 
 async function handleLogout() {
